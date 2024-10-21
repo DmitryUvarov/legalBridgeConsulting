@@ -26,7 +26,7 @@
 
 .title-second {
   font-weight: 700;
-  @include adaptiveValue("font-size", 26, 24);
+  @include adaptiveValue("font-size", 26, 22);
   line-height: 110%;
 
   color: #262424;
@@ -39,7 +39,7 @@
 .text {
   font-weight: 400;
   @include adaptiveValue("font-size", 20, 16);
-  line-height: 120%;
+  line-height: 150%;
   text-align: center;
   color: #262424;
 
