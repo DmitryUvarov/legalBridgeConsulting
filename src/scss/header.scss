@@ -1,0 +1,289 @@
+//====================================================================================================
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  &__container {
+  }
+
+  &__body {
+    display: grid;
+    align-items: flex-start;
+    grid-template-columns: 1fr toRem(152) 1fr;
+    gap: toRem(20);
+
+    @include adaptiveValue("padding-top", 38, 15);
+    @include adaptiveValue("padding-bottom", 38, 15);
+
+    @media (max-width: em(1330)) {
+      grid-template-columns: 1fr toRem(100) 1fr;
+    }
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr toRem(70) 1fr;
+      gap: toRem(15);
+    }
+  }
+
+  &__menu {
+    align-self: center;
+  }
+
+  &__logo-wrapper {
+    position: relative;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: opacity 0.3s ease;
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__assets {
+    display: flex;
+    justify-content: flex-end;
+    row-gap: toRem(15);
+    @include adaptiveValue("column-gap", 50, 15, 0, 1615, 991);
+
+    align-self: center;
+  }
+
+  &__phone {
+    color: #fff;
+    display: grid;
+    justify-content: start;
+    gap: toRem(3);
+
+    &_hide {
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
+    &_mob {
+      color: #262424;
+      @media (min-width: $mobile) {
+        display: none;
+      }
+    }
+  }
+
+  &__phone-title {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 150%;
+    opacity: 0.8;
+  }
+
+  &__phone-link {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 26, 22, 0, 1615, 1300);
+    line-height: 110%;
+    text-align: center;
+    transition: color 0.3s ease;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #24abff;
+      }
+    }
+  }
+
+  &__button {
+    @media (max-width: $tablet) {
+      padding: toRem(14);
+      min-height: 0;
+      &::before {
+        @include adaptiveValue("font-size", 26, 22);
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+.menu {
+  &__icon {
+  }
+
+  &__body {
+    @media (max-width: $mobile) {
+      position: fixed;
+      width: 80%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      background-color: #fff;
+      padding: toRem(100) toRem(15) toRem(30);
+
+      display: flex;
+      flex-direction: column;
+      gap: toRem(20);
+
+      transition: left 0.3s ease;
+      z-index: 10;
+      overflow: auto;
+
+      .menu-open & {
+        left: 0;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    @include adaptiveValue("column-gap", 30, 15, 0, 1615, 991);
+    row-gap: toRem(20);
+
+    @media (max-width: em(1330)) {
+      flex-wrap: wrap;
+    }
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      row-gap: toRem(10);
+    }
+  }
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__link {
+    position: relative;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: toRem(20);
+    line-height: 110%;
+    color: #fff;
+
+    transition: color 0.3s ease;
+
+    @media (max-width: $mobile) {
+      color: #262424;
+      font-size: toRem(25);
+    }
+
+    &::before {
+      content: attr(data-text);
+      font-weight: 700;
+      padding: toRem(5) 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      color: #24abff;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      @include adaptiveValue("width", 19, 15, 0, 1615, 911);
+      @include adaptiveValue("height", 19, 15, 0, 1615, 911);
+      top: toRem(-30);
+      @include adaptiveValue("top", -30, -13, 0, 1615, 911);
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: 5px;
+      background-color: #24abff;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    span {
+      display: block;
+      padding: toRem(5) 0;
+      transition: opacity 0.3s ease;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+        &::after {
+          opacity: 1;
+        }
+        span {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+  display: none;
+  @media (max-width: $mobile) {
+    display: block;
+    position: relative;
+    width: toRem(30);
+    height: toRem(18);
+    z-index: 10;
+    @media (any-hover: none) {
+      cursor: default;
+    }
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: toRem(2);
+      background-color: #fff;
+
+      .menu-open & {
+        background-color: #262424;
+      }
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    span {
+      top: calc(50% - toRem(1));
+    }
+    .menu-open & {
+      span {
+        width: 0;
+      }
+      &::before,
+      &::after {
+      }
+      &::before {
+        top: calc(50% - toRem(1));
+        transform: rotate(-45deg);
+      }
+      &::after {
+        bottom: calc(50% - toRem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
