@@ -64,7 +64,7 @@
 .service {
   &__container {
     @include adaptiveValue("padding-top", 150, 35);
-    @include adaptiveValue("padding-bottom", 70, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
   }
 
   &__header {
@@ -104,17 +104,17 @@
       padding-bottom: percent(300, 345);
     }
 
-    img {
-      transition: transform 0.2s ease;
-    }
+    // img {
+    //   transition: transform 0.2s ease;
+    // }
 
-    @media (any-hover: hover) {
-      &:hover {
-        img {
-          transform: scale(1.05);
-        }
-      }
-    }
+    // @media (any-hover: hover) {
+    //   &:hover {
+    //     img {
+    //       transform: scale(1.05);
+    //     }
+    //   }
+    // }
 
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 30, 20);
@@ -152,7 +152,7 @@
   padding-right: toRem(15);
   padding-left: toRem(15);
 
-  @include adaptiveValue("padding-top", 70, 30);
+  @include adaptiveValue("padding-top", 75, 30);
   @include adaptiveValue("padding-bottom", 75, 30);
 
   &__bg-ibg {
