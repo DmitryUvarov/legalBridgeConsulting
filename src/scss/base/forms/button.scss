@@ -36,8 +36,7 @@
   &_arrow {
     flex-direction: row-reverse;
     &::before {
-      @extend %ic;
-      content: "\e901";
+      transform: translateY(1px);
     }
   }
 

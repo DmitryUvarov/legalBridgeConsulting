@@ -23,7 +23,7 @@
     }
 
     @media (max-width: $mobile) {
-      grid-template-columns: 1fr toRem(70) 1fr;
+      grid-template-columns: 1fr toRem(85) 1fr;
       gap: toRem(15);
     }
   }
