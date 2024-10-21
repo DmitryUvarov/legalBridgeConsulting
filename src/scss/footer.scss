@@ -1,3 +1,148 @@
 //====================================================================================================
 
+.footer {
+  padding-right: toRem(15);
+  padding-left: toRem(15);
+  @include adaptiveValue("padding-top", 75, 30);
+  @include adaptiveValue("padding-bottom", 50, 30);
+
+  &__container {
+    position: relative;
+    max-width: toRem(1840);
+    border-radius: toRem(40);
+    overflow: hidden;
+
+    @include adaptiveValue("padding-top", 70, 45);
+    @include adaptiveValue("padding-bottom", 75, 45);
+  }
+
+  &__bg-ibg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: toRem(24);
+    @include adaptiveValue("row-gap", 40, 35);
+
+    @media (min-width: em(800)) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(350), 1fr));
+    }
+
+    max-width: toRem(1585);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: em(800)) {
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    @include adaptiveValue("max-width", 260, 130, 0, 991, 375);
+    transition: opacity 0.3s ease;
+
+    img {
+      max-width: 100%;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 65, 35);
+    }
+  }
+
+  &__copy {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 20, 16);
+    line-height: 150%;
+    color: #fff;
+    opacity: 0.9;
+
+    @media (max-width: em(800)) {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    @include adaptiveValue("font-size", 40, 30);
+    line-height: 110%;
+    letter-spacing: 0.01em;
+    color: #fff;
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 25);
+    }
+  }
+
+  &__list {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 25);
+    }
+
+    @media (max-width: em(800)) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 15);
+    }
+  }
+
+  &__link {
+    display: block;
+    font-weight: 500;
+    font-size: toRem(20);
+    line-height: 110%;
+    color: #fff;
+    transition: color 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #24abff;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: auto;
+
+    @media (min-width: em(800)) {
+      align-self: flex-start;
+    }
+  }
+
+  &__social {
+    .social__item {
+      @media (max-width: em(800)) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+}
+
 //====================================================================================================
