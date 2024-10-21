@@ -38,7 +38,7 @@
 
 .text {
   font-weight: 400;
-  @include adaptiveValue("font-size", 20, 16);
+  @include adaptiveValue("font-size", 20, 16, 0, 911, 375);
   line-height: 150%;
   text-align: center;
   color: #262424;

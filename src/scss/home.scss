@@ -193,14 +193,9 @@
   }
 
   &__items {
-    // display: grid;
     display: flex;
     flex-wrap: wrap;
     gap: toRem(24);
-
-    @media (min-width: em(660)) {
-      //   grid-template-columns: repeat(auto-fill, minmax(toRem(400), 1fr));
-    }
   }
 
   &__item {
@@ -247,5 +242,109 @@
 }
 
 //========================================================================================================================================================
+
+.rewiev {
+  &__container {
+    @include adaptiveValue("padding-top", 75, 30);
+    @include adaptiveValue("padding-bottom", 75, 30);
+  }
+
+  &__header {
+    max-width: toRem(795);
+    margin-left: auto;
+    margin-right: auto;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 70, 30);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: toRem(24);
+
+    @media (min-width: em(1100)) {
+      grid-template-columns: repeat(auto-fill, minmax(toRem(520), 1fr));
+    }
+    @media (max-width: em(1100)) {
+      max-width: toRem(750);
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__item {
+  }
+}
+
+.item-rewiev {
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: toRem(10);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 25);
+    }
+  }
+
+  &__image {
+    border-radius: 50%;
+    overflow: hidden;
+    flex-grow: 0;
+    flex-shrink: 1;
+    @include adaptiveValue("flex-basis", 75, 60, 0, 991, 375);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__names {
+  }
+
+  &__name {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 20, 18);
+    line-height: 150%;
+
+    &:not(:last-child) {
+      margin-bottom: toRem(5);
+    }
+  }
+
+  &__place {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 17, 15);
+    line-height: 150%;
+    opacity: 0.7;
+  }
+
+  &__content {
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    gap: toRem(4);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 15);
+    }
+  }
+
+  &__star {
+    &::before {
+      @extend %ic;
+      content: "\e905";
+      color: #24abff;
+      font-size: toRem(19);
+    }
+  }
+
+  &__text {
+    text-align: left;
+    max-width: toRem(716);
+  }
+}
+
 //========================================================================================================================================================
 //========================================================================================================================================================
