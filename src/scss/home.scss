@@ -255,7 +255,7 @@
     margin-right: auto;
 
     &:not(:last-child) {
-      @include adaptiveValue("margin-bottom", 70, 30);
+      @include adaptiveValue("margin-bottom", 70, 35);
     }
   }
 
@@ -347,4 +347,46 @@
 }
 
 //========================================================================================================================================================
+
+.ready {
+  padding-right: toRem(15);
+  padding-left: toRem(15);
+  &__container {
+    position: relative;
+    @include adaptiveValue("padding-top", 120, 65);
+    @include adaptiveValue("padding-bottom", 110, 45);
+
+    max-width: toRem(1840);
+    border-radius: toRem(40);
+    overflow: hidden;
+  }
+
+  &__header {
+    max-width: toRem(795);
+    margin-left: auto;
+    margin-right: auto;
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 70, 30);
+    }
+  }
+
+  &__bg-ibg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__body {
+    display: grid;
+  }
+
+  &__button {
+    justify-self: center;
+  }
+}
+
 //========================================================================================================================================================
