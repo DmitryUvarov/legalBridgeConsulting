@@ -82,8 +82,12 @@
     @include adaptiveValue("column-gap", 24, 20);
     row-gap: toRem(24);
 
-    @media (min-width: em(660)) {
-      grid-template-columns: repeat(auto-fill, minmax(toRem(300), 1fr));
+    @media (min-width: em(1300)) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: em(1300)) and (min-width: em(660)) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
