@@ -45,6 +45,7 @@
   }
 
   &__text {
+    text-align: center;
     line-height: 120%;
     font-weight: 500;
     max-width: toRem(620);
@@ -351,6 +352,8 @@
 .ready {
   padding-right: toRem(15);
   padding-left: toRem(15);
+  @include adaptiveValue("padding-top", 75, 30);
+  @include adaptiveValue("padding-bottom", 75, 30);
   &__container {
     position: relative;
     @include adaptiveValue("padding-top", 120, 65);
@@ -390,3 +393,111 @@
 }
 
 //========================================================================================================================================================
+
+.about {
+  @include adaptiveValue("padding-top", 75, 30);
+  @include adaptiveValue("padding-bottom", 75, 30);
+  &__container {
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    gap: toRem(24);
+
+    @media (max-width: $tablet) {
+      flex-direction: column-reverse;
+      max-width: toRem(750);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 100, 50);
+    }
+  }
+
+  &__content {
+  }
+
+  &__title {
+    max-width: toRem(610);
+
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 50, 30);
+    }
+  }
+
+  &__text {
+    max-width: toRem(782);
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    ol {
+      &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 15, 10);
+      }
+    }
+  }
+
+  &__text-block {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 30, 25);
+    }
+  }
+
+  &__image-ibg {
+    padding-bottom: percent(842, 1585);
+    border-radius: toRem(40);
+    overflow: hidden;
+
+    @media (min-width: $tablet) {
+      flex: 0 1 percent(646, 1585);
+      align-self: flex-start;
+    }
+    @media (max-width: $tablet) {
+      padding-bottom: percent(700, 750);
+    }
+  }
+
+  &__progress {
+  }
+}
+
+.progress-about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include adaptiveValue("gap", 100, 25, 0, 1615, 1400);
+
+  @media (max-width: em(1400)) {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  @media (max-width: $tablet) {
+    flex-direction: column;
+    max-width: toRem(600);
+  }
+  &__item {
+    max-width: toRem(600);
+  }
+
+  &__title {
+  }
+
+  &__text {
+    @media (max-width: $mobileSmall) {
+      br {
+        display: none;
+      }
+    }
+  }
+}

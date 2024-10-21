@@ -40,7 +40,7 @@
   font-weight: 400;
   @include adaptiveValue("font-size", 20, 16, 0, 911, 375);
   line-height: 150%;
-  text-align: center;
+  //   text-align: center;
   color: #262424;
 
   &_white {
@@ -50,6 +50,22 @@
   p {
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 15, 10);
+    }
+  }
+
+  li {
+    position: relative;
+    padding-left: toRem(30);
+    &::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #262424;
+      position: absolute;
+
+      top: 13px;
+      left: 13px;
     }
   }
 }
@@ -86,5 +102,6 @@
 
   &__text {
     opacity: 0.9;
+    text-align: center;
   }
 }
